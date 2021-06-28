@@ -6,16 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kike & Carlos' Calculator</title>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
       <div class="calculator">
         <div class="theme">
-          <p>Mode</p>
+          <input type="checkbox" id="toggle" class="offscreen" /> <label for="toggle" class="switch"></label>
         </div>
-        <div class="display">
-          <p>Hola</p>
-        </div>
+          <div class="display">
+            <p class="logActualOperation">10*5</p>
+            <p class="operation">50</p>
+          </div>
         <div class="operators">
           <button class="operator">C</button>
           <button class="operator">±</button>
@@ -40,5 +44,6 @@
         </div>
       </div>
     </div>
+    <script src="/functions.js"></script>
   </body>
 </html>
