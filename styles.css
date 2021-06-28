@@ -1,43 +1,69 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
-  /* background: rgb(25,135,161); */
   background: linear-gradient(90deg, rgba(25,135,161,1) 0%, rgba(9,64,121,1) 50%);
+  margin: 0;
 }
 
 .container {
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
+  align-items: center;
+  height: 100vh;
 }
 
 .calculator {
-  max-width: 350px;
-  background-color: seashell;
-  border-radius: 15px;
   padding: 1rem;
+  max-width: 22rem; /*22 rem = 350px*/
+  background-color: seashell;
+  border-radius: 1rem;
   box-shadow: 2px 2px 10px 5px rgba(0,0,0,0.33);
 }
 
-.theme, .display {
+.divcontrollerballs {
+  display: flex;
+  flex: 1;
+}
+
+.controllerballs {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin: 4px;
+}
+
+.redball {
+  background-color: #FD544D;
+}
+
+.yellowball {
+  background-color: #FFC02F;
+}
+
+.greenball {
+  background-color: #28CA40;
+}
+
+.displayNums {
   text-align: right;
-}
-
-.display {
   background-color: #EFEFEF;
-  border-radius: 15px;
-  padding-right: 1rem;
-  margin-bottom: 28px;
+  border-radius: 1rem;
+  padding: 0.3rem 1rem;
+  margin: 2rem 0;
 }
 
-.logActualOperation {
-  font-size: 10px;
-  padding-top: 5px;
-  margin-bottom: 0;
+.history {
+  font-size: 0.7rem;
+  padding-top: 0.4rem;
+  min-height: 1.5rem;
 }
 
 .operation {
-  font-size: 28px;
-  margin-top: 5px;
+  font-size: 1.7rem;
+  margin-top: 0.4rem;
 }
 
 .operators {
@@ -45,11 +71,7 @@ body {
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr; 
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-  gap: 4px 4px;
-}
-
-.operator {
-  background-color: #EFEFEF;
+  gap: 0.5rem 0.5rem;
 }
 
 button {
@@ -59,48 +81,124 @@ button {
   border-width: 0;
   height: 50px;
   width: 50px;
+  background-color: seashell;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
-  background-color: seashell;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e7dfda;
+}
+
+.operator {
+  background-color: #EFEFEF;
+}
+
+.operator:hover {
+  background-color: #cdccd8;
 }
 
 .equal {
   background-color: #07DEB0;
+  color: white;
+}
+
+.equal:hover {
+  background-color: #1cc09c;
 }
 
 /* SWITCH */
 
-.switch {
+.theme {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkbox {
+  display: none;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  width: 50px;
+  background-color: #254278;
+  border-radius: 50px;
   position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-  background-color: rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  transition: all 0.3s;
 }
 
-.switch::after {
-  content: '';
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.ball {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 18px;
-  background-color: white;
-  top: 1px;
-  left: 1px;
-  transition: all 0.3s;
+  height: 22px;
+  width: 22px;
+  top: 2px;
+  left: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.1s linear;
 }
 
-input[type='checkbox']:checked + .switch::after {
-  transform: translateX(20px);
+.checkbox:checked + .label .ball {
+  transform: translateX(22px)
 }
 
-input[type='checkbox']:checked + .switch {
+.checkbox:checked + .label {
+  background-color: #1cc09c;
+}
+
+/* DARK MODE */
+
+.calculator.dark {
+  background-color: #2E3951;
+}
+
+.number.dark {
+  color: #95A79F;
+  background-color: #2E3951;
+}
+
+.number.dark:hover {
+  background-color: #2b3346;
+}
+
+.historyButton.dark {
+  color: #95A79F;
+  background-color: #2E3951;
+}
+
+.historyButton.dark:hover {
+  background-color: #2b3346;
+}
+
+.displayNums.dark {
+  color: #07DEB0;
+  background-color: #212B41;
+}
+
+.operator.dark {
+  color: #07DEB0;
+  background-color: #212B41;
+}
+
+.operator.dark:hover {
+  background-color: #161d2b;
+}
+
+.equal.dark {
   background-color: #07DEB0;
+  color: black;
 }
 
-.offscreen {
-  position: absolute;
-  left: -9999px;
+.equal.dark:hover {
+  background-color: #1cc09c;
 }

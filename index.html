@@ -5,42 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kike & Carlos' Calculator</title>
+    <link rel="icon" href="/img/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="container">
-      <div class="calculator">
-        <div class="theme">
-          <input type="checkbox" id="toggle" class="offscreen" /> <label for="toggle" class="switch"></label>
+    <div class="container" id="container">
+      <div class="calculator" id="calculator">
+        <div class="theme" id="theme">
+          <div class="divcontrollerballs">
+            <div class="controllerballs redball"></div>
+            <div class="controllerballs yellowball"></div>
+            <div class="controllerballs greenball"></div>
+          </div>
+          <input type="checkbox" class="checkbox" id="checkbox">
+          <label for="checkbox" class="label" id="label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
+        </label>
         </div>
-          <div class="display">
-            <p class="logActualOperation">10*5</p>
-            <p class="operation">50</p>
+          <div class="displayNums" id="displayNums">
+            <p class="history" id="history"></p>
+            <p class="operation" id="operation">0</p>
           </div>
         <div class="operators">
-          <button class="operator">C</button>
-          <button class="operator">±</button>
-          <button class="operator">%</button>
-          <button class="operator">÷</button>
-          <button class="number">7</button>
-          <button class="number">8</button>
-          <button class="number">9</button>
-          <button class="operator">x</button>
-          <button class="number">4</button>
-          <button class="number">5</button>
-          <button class="number">6</button>
-          <button class="operator">-</button>
-          <button class="number">1</button>
-          <button class="number">2</button>
-          <button class="number">3</button>
-          <button class="operator">+</button>
-          <button class="number">0</button>
-          <button class="number">.</button>
-          <button class="number"></button>
-          <button class="operator equal">=</button>
+          <button class="operator" id="clear">C</button>
+          <button class="operator" id="plusminus">±</button>
+          <button class="operator" id="remainder" value="">%</button>
+          <button class="operator" id="division" value="/">÷</button>
+          <button class="number" id="seven" value="7">7</button>
+          <button class="number" id="eight" value="8">8</button>
+          <button class="number" id="nine" value="9">9</button>
+          <button class="operator" id ="multiplication" value="*">x</button>
+          <button class="number" id ="four" value="4">4</button>
+          <button class="number" id ="five" value="5">5</button>
+          <button class="number" id ="six" value="6">6</button>
+          <button class="operator" id="sustraction" value="-">-</button>
+          <button class="number" id="one" value="1">1</button>
+          <button class="number" id="two" value="2">2</button>
+          <button class="number" id="three" value="3">3</button>
+          <button class="operator" id="adittion" value="+">+</button>
+          <button class="number" id="zero" value="0">0</button>
+          <button class="number" id="decimal" value=".">.</button>
+          <button class="historyButton" id="historyButton">&#11119;</button>
+          <button class="equal" id="equal">=</button>
         </div>
       </div>
     </div>
