@@ -13,17 +13,17 @@
   </head>
   <body>
     <div class="container" id="container">
+      <img src="/img/pc.svg" alt="My PC" class="myPC" id="myPC">
+      <img src="/img/trash.svg" alt="Trash" class="trash" id="trash">
       <div class="calculator" id="calculator">
         <div class="theme" id="theme">
           <div class="divcontrollerballs">
             <div class="controllerballs redball" id="closeWindow"></div>
-            <div class="controllerballs yellowball" id="minimizeWindow"></div>
-            <div class="controllerballs greenball"></div>
+            <div class="controllerballs yellowball" id="maximizeWindow"></div>
+            <div class="controllerballs greenball" id="minimizeWindow"></div>
           </div>
           <input type="checkbox" class="checkbox" id="checkbox">
           <label for="checkbox" class="label" id="label">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
             <div class="ball"></div>
           </label>
         </div>
@@ -34,7 +34,7 @@
         <div class="operators">
           <button class="operator" id="clear">C</button>
           <button class="operator" id="plusminus">±</button>
-          <button class="operator" id="remainder" value="">%</button>
+          <button class="operator" id="remainder" value="%">%</button>
           <button class="operator" id="division" value="/">÷</button>
           <button class="number" id="seven" value="7">7</button>
           <button class="number" id="eight" value="8">8</button>

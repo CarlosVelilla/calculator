@@ -6,6 +6,23 @@ body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(90deg, rgba(25,135,161,1) 0%, rgba(9,64,121,1) 50%);
   margin: 0;
+  position: relative;
+}
+
+.myPC {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3rem;
+  width: 10rem;
+}
+
+.trash {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  padding: 3rem;
+  width: 10rem;
 }
 
 .systemBar {
@@ -67,10 +84,12 @@ body {
 
 .yellowball {
   background-color: #FFC02F;
+  cursor: pointer;
 }
 
 .greenball {
   background-color: #28CA40;
+  cursor: pointer;
 }
 
 .openCalculator {

@@ -21,7 +21,6 @@ function changeTheme() {
 
 // OPEN/CLOSE CALCULATOR WINDOW
 
-let container = document.getElementById("container")
 let calculator = document.getElementById("calculator")
 
 let calculatorIcon = document.getElementById("calculatorLogoBar")
@@ -40,23 +39,14 @@ function closeWindow() {
 
 // MINIMIZE WINDOW
 
+let minimizeBtn = document.getElementById("minimizeWindow")
+minimizeBtn.addEventListener("click", minimizeWindow)
+
+function minimizeWindow() {
+  calculator.classList.add("hidden")
+}
+
 // TODO REVISAR TODO ESTO PARA ANIMACIÓN / AÑADIR INDICADOR A LA BARRA DE SISTEMA DE ELEMENTO MINIMIZADO
-
-// let minimizeBtn = document.getElementById("minimizeWindow")
-// minimizeBtn.addEventListener("click", minimizeWindow)
-
-// function minimizeWindow() {
-//   calculator.classList.add("hidden")
-//   openBtn.classList.add("showOpenButton")
-// }
-
-// let openBtn = document.getElementById("openWindow")
-// openBtn.addEventListener("click", reopenWindow)
-
-// function reopenWindow() {
-//   document.getElementById("calculator").classList.remove("hidden")
-//   openBtn.classList.remove("showOpenButton")
-// }
 
 // LOCATE OPERATION HTML
 
@@ -100,6 +90,18 @@ function addNumber() {
   }
 }
 
+// ADD DECIMAL TO OPERATION
+
+let decimal = document.getElementById("decimal")
+decimal.addEventListener("click", addDecimal)
+
+function addDecimal() {
+  if (operation.innerHTML.includes(".")) {}
+  else {
+  operation.innerHTML += this.value
+  }
+}
+
 // CLEAR FUNCTION
 
 let clearBtn = document.getElementById("clear")
@@ -115,12 +117,16 @@ function clearOperation() {
 let plusMinus = document.getElementById("plusminus")
 plusMinus.addEventListener("click", changeOperatorPlusMinus)
 
+
 function changeOperatorPlusMinus() {
-  if (operation.innerHTML.slice(-1) === "+") {
-    console.log("es un más")
-  } else if (operation.innerHTML.slice(-1) === "-") {
-    console.log("es un menos")
-  }
+  operation.innerHTML = operation.innerHTML *- 1
+
+//   NOTE TO SELF: TRY ANOTHER FUNCTION (IF OPERATION ENDS IN + TOGGLES TO - AND VICEVERSA)
+//   if (operation.innerHTML.slice(-1) === "+") {
+//     operation.innerHTML.slice(-1)
+//   } else if (operation.innerHTML.slice(-1) === "-") {
+//     console.log("es un menos")
+//   }
 }
 
 // OPERATION LOG
