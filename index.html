@@ -16,21 +16,21 @@
       <div class="calculator" id="calculator">
         <div class="theme" id="theme">
           <div class="divcontrollerballs">
-            <div class="controllerballs redball"></div>
-            <div class="controllerballs yellowball"></div>
+            <div class="controllerballs redball" id="closeWindow"></div>
+            <div class="controllerballs yellowball" id="minimizeWindow"></div>
             <div class="controllerballs greenball"></div>
           </div>
           <input type="checkbox" class="checkbox" id="checkbox">
           <label for="checkbox" class="label" id="label">
-          <i class="fas fa-moon"></i>
-          <i class="fas fa-sun"></i>
-          <div class="ball"></div>
-        </label>
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+          </label>
         </div>
-          <div class="displayNums" id="displayNums">
-            <p class="history" id="history"></p>
-            <p class="operation" id="operation">0</p>
-          </div>
+        <div class="displayNums" id="displayNums">
+          <p class="history" id="history"></p>
+          <p class="operation" id="operation">0</p>
+        </div>
         <div class="operators">
           <button class="operator" id="clear">C</button>
           <button class="operator" id="plusminus">±</button>
@@ -49,9 +49,16 @@
           <button class="number" id="three" value="3">3</button>
           <button class="operator" id="adittion" value="+">+</button>
           <button class="number" id="zero" value="0">0</button>
-          <button class="number" id="decimal" value=".">.</button>
+          <button class="decimal" id="decimal" value=".">.</button>
           <button class="historyButton" id="historyButton">&#11119;</button>
           <button class="equal" id="equal">=</button>
+        </div>
+      </div>
+      <div class="systemBar">
+        <img src="/img/assembler-logo.png" alt="Assembler logo" class="assembler-logo">
+        <img src="/img/favicon.svg" alt="Calculator program logo" class="calculatorLogoBar" id="calculatorLogoBar">
+        <div class="openCalculator openButton" id="openWindow">
+          <p>Open Calculator</p>
         </div>
       </div>
     </div>

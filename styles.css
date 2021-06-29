@@ -8,11 +8,36 @@ body {
   margin: 0;
 }
 
+.systemBar {
+  position: absolute;
+  bottom: 0;
+  background-color: seashell;
+  height: 3rem;
+  width: 100%;
+}
+
+.assembler-logo {
+  margin: 8px;
+  height: 2rem;
+  padding-right: 1rem;
+  border-right: 1px solid #B5522C;
+}
+
+.calculatorLogoBar {
+  margin: 8px;
+  height: 2rem;
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.hidden {
+  display: none;
 }
 
 .calculator {
@@ -37,6 +62,7 @@ body {
 
 .redball {
   background-color: #FD544D;
+  cursor: pointer;
 }
 
 .yellowball {
@@ -45,6 +71,25 @@ body {
 
 .greenball {
   background-color: #28CA40;
+}
+
+.openCalculator {
+  background-color: seashell;
+  color: black;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.openButton {
+  display: none;
+}
+
+.showOpenButton {
+  display: inline;
 }
 
 .displayNums {
@@ -129,14 +174,6 @@ button:hover {
   position: relative;
 }
 
-.fa-moon {
-  color: #f1c40f;
-}
-
-.fa-sun {
-  color: #f39c12;
-}
-
 .ball {
   position: absolute;
   height: 22px;
@@ -152,11 +189,11 @@ button:hover {
   transform: translateX(22px)
 }
 
+/* DARK MODE */
+
 .checkbox:checked + .label {
   background-color: #1cc09c;
 }
-
-/* DARK MODE */
 
 .calculator.dark {
   background-color: #2E3951;
@@ -168,6 +205,15 @@ button:hover {
 }
 
 .number.dark:hover {
+  background-color: #2b3346;
+}
+
+.decimal.dark {
+  color: #95A79F;
+  background-color: #2E3951;
+}
+
+.decimal.dark:hover {
   background-color: #2b3346;
 }
 
