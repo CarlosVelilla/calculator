@@ -152,9 +152,14 @@ equal.addEventListener("click", solveOperation)
 function solveOperation() {
   let currentOperation = operation.innerHTML
   history.innerHTML = currentOperation
-  let result = eval(operation.innerHTML)
+  let result
+  if (!Number.isInteger(eval(operation.innerHTML))) {
+    result = +eval(operation.innerHTML).toFixed(5)
+  } else {
+    result = eval(operation.innerHTML)
+  }
   operation.innerHTML = result
-  /* AÑADIMOS LA OPERACIÓN AL LOG */
+  /* WE ADD THE OPERATION TO THE LOG */
   operLog.push({order: operLog.length+1, operation: currentOperation, result: result})
 }
 

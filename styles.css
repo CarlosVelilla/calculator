@@ -75,20 +75,21 @@ body {
   height: 20rem;
   max-height: 20rem;
   overflow-y: scroll;
-  width: 30rem;
+  width: 35rem;
   padding-right: 2rem;
   padding-left: 1rem;
-  transform: translateX(25rem);
+  transform: translateX(30rem);
   border-top: 1.5rem solid seashell;
   box-shadow: 2px 2px 10px 5px rgba(0,0,0,0.33);
   color: seashell;
   font-family: 'Courier New', Courier, monospace;
-
 }
 
 .operSummary.show {
   display: block;
 }
+
+/* ----------------------- CALCULATOR BLOCK ----------------------- */
 
 .container {
   display: flex;
@@ -97,11 +98,10 @@ body {
   height: 100vh;
 }
 
-/* TODO animation .minimize {
+/* TODO animation
+.minimize {
   
 } */
-
-/* ----------------------- CALCULATOR BLOCK ----------------------- */
 
 .calculator {
   padding: 1rem;
