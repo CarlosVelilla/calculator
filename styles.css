@@ -9,7 +9,7 @@ body {
   position: relative;
 }
 
-/* SCREEN ELEMENTS */
+/* ----------------------- SCREEN ELEMENTS ----------------------- */
 
 .myPC {
   position: absolute;
@@ -66,7 +66,7 @@ body {
   top: -1rem;
 }
 
-/* SHELL WINDOW (see JS for more info and styles) */
+/* ----------------------- SHELL WINDOW (see JS for more info and styles) ----------------------- */
 
 .operSummary {
   position: absolute;
@@ -101,7 +101,7 @@ body {
   
 } */
 
-/* CALCULATOR BLOCK */
+/* ----------------------- CALCULATOR BLOCK ----------------------- */
 
 .calculator {
   padding: 1rem;
@@ -111,7 +111,7 @@ body {
   box-shadow: 2px 2px 10px 5px rgba(0,0,0,0.33);
 }
 
-/* WINDOW CALCULATOR CONTROLLERS */
+/* ----------------------- WINDOW CALCULATOR CONTROLLERS ----------------------- */
 
 .divcontrollerballs {
   display: flex;
@@ -119,10 +119,10 @@ body {
 }
 
 .controllerballs {
-  height: 10px;
-  width: 10px;
+  height: 0.6rem;
+  width: 0.6rem;
   border-radius: 50%;
-  margin: 4px;
+  margin: 0.25rem;
   cursor: pointer;
 }
 
@@ -138,7 +138,7 @@ body {
   background-color: #28CA40;
 }
 
-/* DARK MODE SWITCH */
+/* ----------------------- DARK MODE SWITCH ----------------------- */
 
 .theme {
   display: flex;
@@ -150,8 +150,8 @@ body {
 }
 
 .label {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   height: 26px;
   width: 50px;
   background-color: #254278;
@@ -172,7 +172,7 @@ body {
 }
 
 
-/* CALCULATOR MODULE */
+/* ----------------------- CALCULATOR MODULE ----------------------- */
 
 .displayNums {
   text-align: right;
@@ -235,7 +235,7 @@ button:hover {
   background-color: #1cc09c;
 }
 
-/* DARK MODE */
+/* ----------------------- DARK MODE ----------------------- */
 
 .checkbox:checked + .label {
   background-color: #1cc09c;
@@ -272,7 +272,7 @@ button:hover {
   background-color: #1cc09c;
 }
 
-/* UTILS */
+/* ----------------------- UTILS ----------------------- */
 
 .bold {
   font-weight: bold;
@@ -288,7 +288,7 @@ button:hover {
 
 
 
-/* DISCARDS PENDING REVISION BECAUSE OF REFACTOR OR PREVIOUS REVISIONS*/
+/* ----------------------- DISCARDS PENDING REVISION BECAUSE OF REFACTOR OR PREVIOUS REVISIONS ----------------------- */
 
 /* .openCalculator {
   background-color: seashell;

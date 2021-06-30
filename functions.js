@@ -1,7 +1,7 @@
-// DARK MODE
+/* ----------------------- DARK MODE ----------------------- */
 
 const CHECKBOX = document.getElementById("checkbox")
-CHECKBOX.addEventListener("click", changeTheme)
+CHECKBOX.addEventListener("change", changeTheme)
 
 function changeTheme() {
   document.getElementById("calculator").classList.toggle("dark")
@@ -9,9 +9,9 @@ function changeTheme() {
   document.getElementById("displayNums").classList.toggle("dark")
   document.getElementById("decimal").classList.toggle("dark")
   document.getElementById("historyButton").classList.toggle("dark")
-  let operator = document.getElementsByClassName("operator")
-  for (let i = 0; i < operator.length; i++) {
-    operator[i].classList.toggle("dark")
+  let btnOperator = document.getElementsByClassName("operator")
+  for (let i = 0; i < btnOperator.length; i++) {
+    btnOperator[i].classList.toggle("dark")
   }
   let btnNumbers = document.getElementsByClassName("number")
   for (let i = 0; i < btnNumbers.length; i++) {
@@ -19,18 +19,11 @@ function changeTheme() {
   }
 }
 
-// OPEN/CLOSE CALCULATOR WINDOW
+/* ----------------------- OPEN/CLOSE/MINIMIZE CALCULATOR WINDOW ----------------------- */
 
 let calculator = document.getElementById("calculator")
 
-let calculatorIcon = document.getElementById("calculatorLogoBar")
-calculatorIcon.addEventListener("click", openWindow)
-
-function openWindow() {
-  calculator.classList.remove("hidden")
-  numNotification.classList.add("hidden")
-  numNotification.classList.remove("numNotification")
-}
+// CLOSE
 
 let closeBtn = document.getElementById("closeWindow")
 closeBtn.addEventListener("click", closeWindow)
@@ -39,7 +32,7 @@ function closeWindow() {
   calculator.classList.add("hidden")
 }
 
-// MINIMIZE WINDOW
+// MINIMIZE
 
 let minimizeBtn = document.getElementById("minimizeWindow")
 minimizeBtn.addEventListener("click", minimizeWindow)
@@ -47,21 +40,30 @@ minimizeBtn.addEventListener("click", minimizeWindow)
 function minimizeWindow() {
   let numNotification = document.getElementById("numNotification")
   calculator.classList.add("hidden")
-  numNotification.classList.toggle("hidden")
-  numNotification.classList.toggle("numNotification")
+  numNotification.classList.remove("hidden")
 }
 
-// TODO REVISAR ESTO PARA ANIMACIÓN / AÑADIR INDICADOR A LA BARRA DE SISTEMA DE ELEMENTO MINIMIZADO
+// OPEN
 
-// LOCATE OPERATION HTML
+let calculatorIcon = document.getElementById("calculatorLogoBar")
+calculatorIcon.addEventListener("click", openWindow)
+
+function openWindow() {
+  calculator.classList.remove("hidden")
+  numNotification.classList.add("hidden")
+}
+
+/* TO-DO: REVISAR ESTO PARA ANIMACIÓN */
+
+/* ----------------------- LOCATE OPERATION HTML ----------------------- */
 
 let operation = document.getElementById("operation")
 
-// LOCATE HISTORY HTML
+/* ----------------------- LOCATE HISTORY HTML ----------------------- */
 
 let history = document.getElementById("history")
 
-// ADD OPERATORS TO OPERATION
+/* ----------------------- ADD OPERATORS TO OPERATION ----------------------- */
 
 let operator = document.getElementsByClassName("operator")
 for(let i = 0; i < operator.length; i++) {
@@ -80,9 +82,9 @@ function addOperator() {
   }
 }
 
-// TODO REVISAR SI HAY UNA FORMA MÁS EFICIENTE DE EVITAR ÚLTIMO DÍGITO OPERADOR
+/* TO-DO: REVISAR SI HAY UNA FORMA MÁS EFICIENTE DE EVITAR ÚLTIMO DÍGITO OPERADOR */
 
-// ADD NUMBERS TO OPERATION
+/* ----------------------- ADD NUMBERS TO OPERATION ----------------------- */
 
 let numberCalc = document.getElementsByClassName("number")
 for(let i = 0; i < numberCalc.length; i++) {
@@ -90,14 +92,14 @@ for(let i = 0; i < numberCalc.length; i++) {
 }
 
 function addNumber() {
-  if (operation.innerHTML == 0) {
+  if (operation.innerHTML === "0") {
     operation.innerHTML = this.value
   } else {
     operation.innerHTML += this.value
   }
 }
 
-// ADD DECIMAL TO OPERATION
+/* ----------------------- ADD DECIMAL TO OPERATION ----------------------- */
 
 let decimal = document.getElementById("decimal")
 decimal.addEventListener("click", addDecimal)
@@ -108,7 +110,7 @@ function addDecimal() {
   }
 }
 
-// CLEAR FUNCTION
+/* ----------------------- CLEAR FUNCTION ----------------------- */
 
 let clearBtn = document.getElementById("clear")
 clearBtn.addEventListener("click", clearOperation)
@@ -118,12 +120,10 @@ function clearOperation() {
   history.innerHTML = ""
 }
 
-// CHANGE OPERATOR PLUSMINUS ± FUNCTION
+/* ----------------------- CHANGE OPERATOR - PLUSMINUS ± FUNCTION ----------------------- */
 
 let plusMinus = document.getElementById("plusminus")
 plusMinus.addEventListener("click", changeOperatorPlusMinus)
-
-
 
 function changeOperatorPlusMinus() {
   if (operation.innerHTML.charAt(0) == "-") {
@@ -140,11 +140,11 @@ function changeOperatorPlusMinus() {
   }
 }
 
-// OPERATION LOG
+/* OPERATION LOG */
 
 let operLog = []
 
-// EQUAL FUNCTION
+/* EQUAL FUNCTION */
 
 let equal = document.getElementById("equal")
 equal.addEventListener("click", solveOperation)
@@ -154,11 +154,11 @@ function solveOperation() {
   history.innerHTML = currentOperation
   let result = eval(operation.innerHTML)
   operation.innerHTML = result
-  // AÑADIMOS LA OPERACIÓN AL LOG
+  /* AÑADIMOS LA OPERACIÓN AL LOG */
   operLog.push({order: operLog.length+1, operation: currentOperation, result: result})
 }
 
-// HISTORY CONSOLE LOG
+/* HISTORY CONSOLE LOG */
 
 let historyBtn = document.getElementById("historyButton")
 historyBtn.addEventListener("click", consoleLogOperations)
@@ -171,6 +171,6 @@ function consoleLogOperations() {
   for (i = 0; i < operLog.length; i++) {
     operations += `<span class="bold textAlignRight">Operation#${operLog[i].order}</span>: Operation: ${operLog[i].operation} | Result: ${operLog[i].result}</span><br>`
   }
-  operSummary.innerHTML = `<p>KikeCarlos PowerShell<br>Copyright (C) KikeCarlosSoft Corporation. Todos los derechos reservados.<br>------------------------------<br><br>${operations}</p>`
+  operSummary.innerHTML = `<p>KiCarlSoft PowerShell<br>Copyright (C) KiCarlSoft Corporation.<br>Todos los derechos reservados.<br>------------------------------<br><br>${operations}</p>`
   operSummary.classList.toggle("show")
 }
