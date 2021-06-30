@@ -169,8 +169,8 @@ function consoleLogOperations() {
 
   let operations = []
   for (i = 0; i < operLog.length; i++) {
-    operations += `KikeCarlos PowerShell<br>Copyright (C) KikeCarlosSoft Corporation. Todos los derechos reservados.<br><br><span class="bold textAlignRight">Operation#${operLog[i].order}</span>: Operation: ${operLog[i].operation} | Result: ${operLog[i].result}<br></span>`
+    operations += `<span class="bold textAlignRight">Operation#${operLog[i].order}</span>: Operation: ${operLog[i].operation} | Result: ${operLog[i].result}</span><br>`
   }
+  operSummary.innerHTML = `<p>KikeCarlos PowerShell<br>Copyright (C) KikeCarlosSoft Corporation. Todos los derechos reservados.<br>------------------------------<br><br>${operations}</p>`
   operSummary.classList.toggle("show")
-  operSummary.innerHTML = `<p class="operLogParagraphDefault">${operations}</p>`
 }

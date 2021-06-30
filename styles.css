@@ -9,6 +9,8 @@ body {
   position: relative;
 }
 
+/* SCREEN ELEMENTS */
+
 .myPC {
   position: absolute;
   top: 0;
@@ -64,34 +66,28 @@ body {
   top: -1rem;
 }
 
+/* SHELL WINDOW (see JS for more info and styles) */
+
 .operSummary {
   position: absolute;
   display: none;
-  /* transition: cubic-bezier(0.075, 0.82, 0.165, 1); */
   background-color: #012456;
   height: 20rem;
+  max-height: 20rem;
+  overflow-y: scroll;
   width: 30rem;
   padding-right: 2rem;
   padding-left: 1rem;
   transform: translateX(25rem);
   border-top: 1.5rem solid seashell;
+  box-shadow: 2px 2px 10px 5px rgba(0,0,0,0.33);
+  color: seashell;
+  font-family: 'Courier New', Courier, monospace;
+
 }
 
 .operSummary.show {
   display: block;
-}
-
-.operLogParagraphDefault {
-  color: seashell;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.textAlignRight {
-  text-align: right;
 }
 
 .container {
@@ -101,13 +97,11 @@ body {
   height: 100vh;
 }
 
-.hidden {
-  display: none;
-}
-
 /* TODO animation .minimize {
   
 } */
+
+/* CALCULATOR BLOCK */
 
 .calculator {
   padding: 1rem;
@@ -116,6 +110,8 @@ body {
   border-radius: 1rem;
   box-shadow: 2px 2px 10px 5px rgba(0,0,0,0.33);
 }
+
+/* WINDOW CALCULATOR CONTROLLERS */
 
 .divcontrollerballs {
   display: flex;
@@ -127,41 +123,56 @@ body {
   width: 10px;
   border-radius: 50%;
   margin: 4px;
+  cursor: pointer;
 }
 
 .redball {
   background-color: #FD544D;
-  cursor: pointer;
 }
 
 .yellowball {
   background-color: #FFC02F;
-  cursor: pointer;
 }
 
 .greenball {
   background-color: #28CA40;
-  cursor: pointer;
 }
 
-.openCalculator {
-  background-color: seashell;
-  color: black;
-  padding: 0 1rem;
-  margin-bottom: 1rem;
+/* DARK MODE SWITCH */
+
+.theme {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(22px)
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  width: 50px;
+  background-color: #254278;
   border-radius: 50px;
-  position: absolute;
-  bottom: 0;
+  position: relative;
   cursor: pointer;
 }
 
-.openButton {
-  display: none;
+.ball {
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  top: 2px;
+  left: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.1s linear;
 }
 
-.showOpenButton {
-  display: inline;
-}
+
+/* CALCULATOR MODULE */
 
 .displayNums {
   text-align: right;
@@ -185,9 +196,9 @@ body {
 .operators {
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-  gap: 0.5rem 0.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.5rem;
 }
 
 button {
@@ -224,42 +235,6 @@ button:hover {
   background-color: #1cc09c;
 }
 
-/* SWITCH */
-
-.theme {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.checkbox {
-  display: none;
-}
-
-.label {
-  display: flex;
-  align-items: center;
-  height: 26px;
-  width: 50px;
-  background-color: #254278;
-  border-radius: 50px;
-  position: relative;
-}
-
-.ball {
-  position: absolute;
-  height: 22px;
-  width: 22px;
-  top: 2px;
-  left: 3px;
-  background-color: #fff;
-  border-radius: 50%;
-  transition: transform 0.1s linear;
-}
-
-.checkbox:checked + .label .ball {
-  transform: translateX(22px)
-}
-
 /* DARK MODE */
 
 .checkbox:checked + .label {
@@ -270,39 +245,16 @@ button:hover {
   background-color: #2E3951;
 }
 
-.number.dark {
+.number.dark, .decimal.dark, .historyButton.dark {
   color: #95A79F;
   background-color: #2E3951;
 }
 
-.number.dark:hover {
+.number.dark:hover, .decimal.dark:hover, .historyButton.dark:hover {
   background-color: #2b3346;
 }
 
-.decimal.dark {
-  color: #95A79F;
-  background-color: #2E3951;
-}
-
-.decimal.dark:hover {
-  background-color: #2b3346;
-}
-
-.historyButton.dark {
-  color: #95A79F;
-  background-color: #2E3951;
-}
-
-.historyButton.dark:hover {
-  background-color: #2b3346;
-}
-
-.displayNums.dark {
-  color: #07DEB0;
-  background-color: #212B41;
-}
-
-.operator.dark {
+.displayNums.dark, .operator.dark {
   color: #07DEB0;
   background-color: #212B41;
 }
@@ -319,3 +271,63 @@ button:hover {
 .equal.dark:hover {
   background-color: #1cc09c;
 }
+
+/* UTILS */
+
+.bold {
+  font-weight: bold;
+}
+
+.textAlignRight {
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+/* DISCARDS PENDING REVISION BECAUSE OF REFACTOR OR PREVIOUS REVISIONS*/
+
+/* .openCalculator {
+  background-color: seashell;
+  color: black;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+} */
+
+/* .openButton {
+  display: none;
+} */
+
+/* .showOpenButton {
+  display: inline;
+} */
+
+/* .decimal.dark {
+  color: #95A79F;
+  background-color: #2E3951;
+} */
+
+/* .decimal.dark:hover {
+  background-color: #2b3346;
+} */
+
+/* .historyButton.dark:hover {
+  background-color: #2b3346;
+} */
+
+/* .historyButton.dark {
+  color: #95A79F;
+  background-color: #2E3951;
+} */
+
+/* .operator.dark {
+  color: #07DEB0;
+  background-color: #212B41;
+} */
