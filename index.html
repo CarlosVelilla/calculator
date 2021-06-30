@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="/functions.js" async defer></script>
   </head>
   <body>
     <div class="container" id="container">
@@ -54,14 +55,13 @@
           <button class="equal" id="equal">=</button>
         </div>
       </div>
+      <div class="operSummary" id="operSummary"></div>
       <div class="systemBar">
         <img src="/img/assembler-logo.png" alt="Assembler logo" class="assembler-logo">
         <img src="/img/favicon.svg" alt="Calculator program logo" class="calculatorLogoBar" id="calculatorLogoBar">
-        <div class="openCalculator openButton" id="openWindow">
-          <p>Open Calculator</p>
-        </div>
+        <p class="hidden" id="numNotification">1</p>
+        <div class="openCalculator openButton" id="openWindow"></div>
       </div>
     </div>
-    <script src="/functions.js"></script>
   </body>
 </html>

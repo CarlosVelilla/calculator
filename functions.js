@@ -28,6 +28,8 @@ calculatorIcon.addEventListener("click", openWindow)
 
 function openWindow() {
   calculator.classList.remove("hidden")
+  numNotification.classList.add("hidden")
+  numNotification.classList.remove("numNotification")
 }
 
 let closeBtn = document.getElementById("closeWindow")
@@ -43,10 +45,13 @@ let minimizeBtn = document.getElementById("minimizeWindow")
 minimizeBtn.addEventListener("click", minimizeWindow)
 
 function minimizeWindow() {
+  let numNotification = document.getElementById("numNotification")
   calculator.classList.add("hidden")
+  numNotification.classList.toggle("hidden")
+  numNotification.classList.toggle("numNotification")
 }
 
-// TODO REVISAR TODO ESTO PARA ANIMACIÓN / AÑADIR INDICADOR A LA BARRA DE SISTEMA DE ELEMENTO MINIMIZADO
+// TODO REVISAR ESTO PARA ANIMACIÓN / AÑADIR INDICADOR A LA BARRA DE SISTEMA DE ELEMENTO MINIMIZADO
 
 // LOCATE OPERATION HTML
 
@@ -67,8 +72,10 @@ function addOperator() {
   if (operation.innerHTML.slice(-1) === "+" ||
       operation.innerHTML.slice(-1) === "-" ||
       operation.innerHTML.slice(-1) === "*" ||
-      operation.innerHTML.slice(-1) === "/"
-  ) {} else {
+      operation.innerHTML.slice(-1) === "/" ||
+      operation.innerHTML.slice(-1) === "%"
+  ) {}
+  else {
     operation.innerHTML += this.value
   }
 }
@@ -96,9 +103,8 @@ let decimal = document.getElementById("decimal")
 decimal.addEventListener("click", addDecimal)
 
 function addDecimal() {
-  if (operation.innerHTML.includes(".")) {}
-  else {
-  operation.innerHTML += this.value
+  if (!operation.innerHTML.includes(".")) {
+    operation.innerHTML += this.value
   }
 }
 
@@ -118,20 +124,25 @@ let plusMinus = document.getElementById("plusminus")
 plusMinus.addEventListener("click", changeOperatorPlusMinus)
 
 
-function changeOperatorPlusMinus() {
-  operation.innerHTML = operation.innerHTML *- 1
 
-//   NOTE TO SELF: TRY ANOTHER FUNCTION (IF OPERATION ENDS IN + TOGGLES TO - AND VICEVERSA)
-//   if (operation.innerHTML.slice(-1) === "+") {
-//     operation.innerHTML.slice(-1)
-//   } else if (operation.innerHTML.slice(-1) === "-") {
-//     console.log("es un menos")
-//   }
+function changeOperatorPlusMinus() {
+  if (operation.innerHTML.charAt(0) == "-") {
+    operation.innerHTML = operation.innerHTML *- 1
+  } else if (
+    operation.innerHTML.includes("+") ||
+    operation.innerHTML.includes("-") ||
+    operation.innerHTML.includes("*") ||
+    operation.innerHTML.includes("/") ||
+    operation.innerHTML.includes("%")
+  ) {}
+  else {
+    operation.innerHTML = operation.innerHTML *- 1
+  }
 }
 
 // OPERATION LOG
 
-let operationsAccomplished = []
+let operLog = []
 
 // EQUAL FUNCTION
 
@@ -144,14 +155,22 @@ function solveOperation() {
   let result = eval(operation.innerHTML)
   operation.innerHTML = result
   // AÑADIMOS LA OPERACIÓN AL LOG
-  operationsAccomplished.push({operation: currentOperation, result: result})
+  operLog.push({order: operLog.length+1, operation: currentOperation, result: result})
 }
 
 // HISTORY CONSOLE LOG
 
 let historyBtn = document.getElementById("historyButton")
 historyBtn.addEventListener("click", consoleLogOperations)
+let operSummary = document.getElementById("operSummary")
 
 function consoleLogOperations() {
-  console.log(operationsAccomplished)
+  console.log(operLog)
+
+  let operations = []
+  for (i = 0; i < operLog.length; i++) {
+    operations += `KikeCarlos PowerShell<br>Copyright (C) KikeCarlosSoft Corporation. Todos los derechos reservados.<br><br><span class="bold textAlignRight">Operation#${operLog[i].order}</span>: Operation: ${operLog[i].operation} | Result: ${operLog[i].result}<br></span>`
+  }
+  operSummary.classList.toggle("show")
+  operSummary.innerHTML = `<p class="operLogParagraphDefault">${operations}</p>`
 }

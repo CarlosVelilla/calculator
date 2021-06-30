@@ -31,6 +31,7 @@ body {
   background-color: seashell;
   height: 3rem;
   width: 100%;
+  display: flex;
 }
 
 .assembler-logo {
@@ -46,6 +47,53 @@ body {
   cursor: pointer;
 }
 
+.numNotification {
+  top: 0;
+  right: 0;
+  background-color: #FD544D;
+  color: seashell;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 11rem;
+  margin-bottom: 6rem;
+  top: -1rem;
+}
+
+.operSummary {
+  position: absolute;
+  display: none;
+  /* transition: cubic-bezier(0.075, 0.82, 0.165, 1); */
+  background-color: #012456;
+  height: 20rem;
+  width: 30rem;
+  padding-right: 2rem;
+  padding-left: 1rem;
+  transform: translateX(25rem);
+  border-top: 1.5rem solid seashell;
+}
+
+.operSummary.show {
+  display: block;
+}
+
+.operLogParagraphDefault {
+  color: seashell;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.textAlignRight {
+  text-align: right;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -57,9 +105,13 @@ body {
   display: none;
 }
 
+/* TODO animation .minimize {
+  
+} */
+
 .calculator {
   padding: 1rem;
-  max-width: 22rem; /*22 rem = 350px*/
+  max-width: 16rem; /*16 rem = 250px*/
   background-color: seashell;
   border-radius: 1rem;
   box-shadow: 2px 2px 10px 5px rgba(0,0,0,0.33);
