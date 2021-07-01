@@ -1,6 +1,6 @@
 MORE INFO AND INTERESTING LINKS:
   INFO:
 
-
   LINKS:
+- ALTERNATIVES TO EVAL() FOR CALCULATE STRINGS: https://stackoverflow.com/questions/6479236/calculate-string-value-in-javascript-not-using-eval
 - EQUAL ROUND ADAPTING TO DECIMALS: https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
