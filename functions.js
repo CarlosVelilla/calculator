@@ -128,6 +128,7 @@ plusMinus.addEventListener("click", changeOperatorPlusMinus)
 function changeOperatorPlusMinus() {
   if (operation.innerHTML.charAt(0) == "-") {
     operation.innerHTML = operation.innerHTML *- 1
+    //! DANGER! IF WE USE THIS IN THE MIDDLE OF AN OPERATION IT WILL DISPLAY NaN (because of string multiplied by -1)
   } else if (
     operation.innerHTML.includes("+") ||
     operation.innerHTML.includes("-") ||
